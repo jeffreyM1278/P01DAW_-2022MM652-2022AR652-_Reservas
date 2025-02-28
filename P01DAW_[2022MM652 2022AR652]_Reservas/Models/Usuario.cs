@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace P01DAW__2022MM652_2022AR652__Reservas.Models
 {
@@ -13,5 +14,7 @@ namespace P01DAW__2022MM652_2022AR652__Reservas.Models
         public string Contraseña { get; set; }
         public string Rol { get; set; } // Cliente o Empleado
         public int? SucursalId { get; set; }
+        [Column("Contraseña")]  // Mapea a la columna "Contraseña" en la base de datos
+        public string Contrasenia { get; set; }
     }
 }
