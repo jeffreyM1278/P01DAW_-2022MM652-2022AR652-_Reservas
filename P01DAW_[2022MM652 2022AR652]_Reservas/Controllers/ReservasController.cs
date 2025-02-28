@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using P01DAW__2022MM652_2022AR652__Reservas.data;
 using P01DAW__2022MM652_2022AR652__Reservas.Models;
 
 namespace P01DAW__2022MM652_2022AR652__Reservas.Controllers
@@ -16,14 +17,14 @@ namespace P01DAW__2022MM652_2022AR652__Reservas.Controllers
             _context = context;
         }
 
-        // 📌 Obtener todas las reservas
+        //  Obtener todas las reservas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reserva>>> GetReservas()
         {
             return await _context.Reservas.ToListAsync();
         }
 
-        // 📌 Registrar una reserva
+        //  Registrar una reserva
         [HttpPost]
         public async Task<ActionResult<Reserva>> PostReserva(Reserva reserva)
         {
@@ -32,7 +33,7 @@ namespace P01DAW__2022MM652_2022AR652__Reservas.Controllers
             return CreatedAtAction(nameof(GetReservas), new { id = reserva.ReservaId }, reserva);
         }
 
-        // 📌 Cancelar una reserva antes de su uso
+        //  Cancelar una reserva antes de su uso
         [HttpDelete("{id}")]
         public async Task<IActionResult> CancelarReserva(int id)
         {
